@@ -21,6 +21,10 @@ int main(void)
     	{
     	    rc = rc | 0x20;
     	}
+        else if (rc >= 'a' && rc <= 'z')
+        {
+            rc = rc & 0xDF;
+        }
 
     	usart2_w(rc);
     }

@@ -1,0 +1,16 @@
+21:34:20 **** Build of configuration Debug for project tamrin1 ****
+make -j20 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_FULL_LL_DRIVERS -DSTM32F103xB -c -I../Inc -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Include" -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_FULL_LL_DRIVERS -DSTM32F103xB -c -I../Inc -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Include" -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_FULL_LL_DRIVERS -DSTM32F103xB -c -I../Inc -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/STM32F1xx_HAL_Driver/Inc" -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Include" -I"H:/FVEE363/FVEE363/Video/S2/File and codes/STM32Cube_FW_F1_V1.8.0/STM32Cube_FW_F1_V1.8.0/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/main.c:1:10: fatal error: stm32f1xx_ll_gpio.h: No such file or directory
+    1 | #include <stm32f1xx_ll_gpio.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+
+21:34:20 Build Failed. 3 errors, 0 warnings. (took 290ms)
+
