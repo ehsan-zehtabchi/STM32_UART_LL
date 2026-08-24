@@ -15,14 +15,8 @@ int main(void)
 
     while (1)
     {
-    	rc = usart2_r();
-
-    	if (rc >= 'A' && rc <= 'Z')
-    	{
-    	    rc = rc | 0x20;
-    	}
-
-    	usart2_w(rc);
+        rc = usart2_r();
+        usart2_w(rc);
     }
 }
 
