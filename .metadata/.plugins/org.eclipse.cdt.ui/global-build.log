@@ -1,0 +1,21 @@
+21:15:42 **** Incremental Build of configuration Debug for project STM32_UART_LL_01 ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F411RE -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -DUSE_FULL_LL_DRIVERS -c -I../Inc -I"C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/CMSIS/Include" -I"C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/CMSIS/Include" -I"C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "STM32_UART_LL_01.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Zehta\Documents\Repository\STM32_UART_LL\STM32_UART_LL_01\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32_UART_LL_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32_UART_LL_01.elf
+ 
+arm-none-eabi-size  STM32_UART_LL_01.elf 
+arm-none-eabi-objdump -h -S STM32_UART_LL_01.elf  > "STM32_UART_LL_01.list"
+   text	   data	    bss	    dec	    hex	filename
+   3728	      0	   1568	   5296	   14b0	STM32_UART_LL_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32_UART_LL_01.list
+ 
+21:16:01 **** Incremental Build of configuration Debug for project STM32_UART_LL_01 ****
+make -j20 all 
+arm-none-eabi-size  STM32_UART_LL_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3728	      0	   1568	   5296	   14b0	STM32_UART_LL_01.elf
+Finished building: default.size.stdout
+ 

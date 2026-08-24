@@ -1,0 +1,21 @@
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:274:22:LL_GPIO_SetPinMode	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:343:22:LL_GPIO_SetPinOutputType	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:414:22:LL_GPIO_SetPinSpeed	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:485:22:LL_GPIO_SetPinPull	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:557:22:LL_GPIO_SetAFPin_0_7	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:409:22:LL_USART_Enable	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:423:22:LL_USART_Disable	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:496:22:LL_USART_SetTransferDirection	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:849:22:LL_USART_ConfigCharacter	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:1019:22:LL_USART_SetBaudRate	2
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:1478:22:LL_USART_ConfigAsyncMode	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:1791:26:LL_USART_IsActiveFlag_RXNE	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:1813:26:LL_USART_IsActiveFlag_TXE	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:2402:25:LL_USART_ReceiveData8	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h:2425:22:LL_USART_TransmitData8	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h:411:22:LL_AHB1_GRP1_EnableClock	1
+C:/uni-nots/Microcontrollers/Udemi_Embedded Systems STM32 HAL APIs Driver Development/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h:1187:22:LL_APB1_GRP1_EnableClock	1
+../Src/main.c:10:5:main	1
+../Src/main.c:28:6:usart2_int	1
+../Src/main.c:142:6:usart2_w	2
+../Src/main.c:156:6:usart2_r	2

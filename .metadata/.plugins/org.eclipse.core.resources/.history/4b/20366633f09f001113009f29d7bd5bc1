@@ -1,0 +1,374 @@
+
+**#include** "stm32f4xx.h"
+
+**#include** "stm32f4xx\_ll\_gpio.h"
+
+**#include** "stm32f4xx\_ll\_usart.h"
+
+**#include** "stm32f4xx\_ll\_bus.h"
+
+
+
+**void** **usart2\_int**(**void**);
+
+**void** **usart2\_w**(**char** ch);
+
+**char** **usart2\_r**(**void**);
+
+
+
+**int** **main**(**void**)
+
+{
+
+    **char** rc;
+
+    usart2\_int();
+
+    **while** (1)
+
+    {
+
+        rc = usart2\_r();
+
+        usart2\_w(rc);
+
+    }
+
+}
+
+
+
+/\* =========================================================
+
+ \* USART2 INITIALIZATION
+
+ \* ========================================================= \*/
+
+**void** **usart2\_int**(**void**)
+
+{
+
+    /\*
+
+     \* Enable GPIOA clock
+
+     \*
+
+     \* STM32F411:
+
+     \* GPIOA is connected to AHB1
+
+     \*/
+
+    LL\_AHB1\_GRP1\_EnableClock(LL\_AHB1\_GRP1\_PERIPH\_GPIOA);
+
+
+
+    /\*
+
+     \* Enable USART2 clock
+
+     \*
+
+     \* USART2 is connected to APB1
+
+     \*/
+
+    LL\_APB1\_GRP1\_EnableClock(LL\_APB1\_GRP1\_PERIPH\_USART2);
+
+
+
+    /\*
+
+     \* PA2 = USART2\_TX
+
+     \* PA3 = USART2\_RX
+
+     \*
+
+     \* Both pins must be configured as Alternate Function.
+
+     \*/
+
+    LL\_GPIO\_SetPinMode(
+
+        GPIOA,
+
+        LL\_GPIO\_PIN\_2,
+
+        LL\_GPIO\_MODE\_ALTERNATE
+
+    );
+
+    LL\_GPIO\_SetPinMode(
+
+        GPIOA,
+
+        LL\_GPIO\_PIN\_3,
+
+        LL\_GPIO\_MODE\_ALTERNATE
+
+    );
+
+
+
+    /\*
+
+     \* USART2 uses Alternate Function 7
+
+     \*/
+
+    LL\_GPIO\_SetAFPin\_0\_7(
+
+        GPIOA,
+
+        LL\_GPIO\_PIN\_2,
+
+        LL\_GPIO\_AF\_7
+
+    );
+
+    LL\_GPIO\_SetAFPin\_0\_7(
+
+        GPIOA,
+
+        LL\_GPIO\_PIN\_3,
+
+        LL\_GPIO\_AF\_7
+
+    );
+
+
+
+    /\*
+
+     \* GPIO speed
+
+     \*/
+
+    LL\_GPIO\_SetPinSpeed(
+
+        GPIOA,
+
+        LL\_GPIO\_PIN\_2 | LL\_GPIO\_PIN\_3,
+
+        LL\_GPIO\_SPEED\_FREQ\_VERY\_HIGH
+
+    );
+
+
+
+    /\*
+
+     \* TX output type
+
+     \*/
+
+    LL\_GPIO\_SetPinOutputType(
+
+        GPIOA,
+
+        LL\_GPIO\_PIN\_2,
+
+        LL\_GPIO\_OUTPUT\_PUSHPULL
+
+    );
+
+
+
+    /\*
+
+     \* Pull-up on TX and RX
+
+     \*/
+
+    LL\_GPIO\_SetPinPull(
+
+        GPIOA,
+
+        LL\_GPIO\_PIN\_2 | LL\_GPIO\_PIN\_3,
+
+        LL\_GPIO\_PULL\_UP
+
+    );
+
+
+
+    /\*
+
+     \* Disable USART2 before configuration
+
+     \*/
+
+    LL\_USART\_Disable(USART2);
+
+
+
+    /\*
+
+     \* TX + RX
+
+     \*/
+
+    LL\_USART\_SetTransferDirection(
+
+        USART2,
+
+        LL\_USART\_DIRECTION\_TX\_RX
+
+    );
+
+
+
+    /\*
+
+     \* 8 data bits
+
+     \* No parity
+
+     \* 1 stop bit
+
+     \*/
+
+    LL\_USART\_ConfigCharacter(
+
+        USART2,
+
+        LL\_USART\_DATAWIDTH\_8B,
+
+        LL\_USART\_PARITY\_NONE,
+
+        LL\_USART\_STOPBITS\_1
+
+    );
+
+
+
+    /\*
+
+     \* USART2 clock = 16 MHz
+
+     \*
+
+     \* Default STM32F411 clock:
+
+     \*
+
+     \* HSI     = 16 MHz
+
+     \* SYSCLK  = 16 MHz
+
+     \* APB1    = 16 MHz
+
+     \*
+
+     \* Baud rate = 115200
+
+     \*/
+
+    LL\_USART\_SetBaudRate(
+
+        USART2,
+
+        16000000,
+
+        LL\_USART\_OVERSAMPLING\_16,
+
+        115200
+
+    );
+
+
+
+    /\*
+
+     \* Configure asynchronous mode
+
+     \*/
+
+    LL\_USART\_ConfigAsyncMode(USART2);
+
+
+
+    /\*
+
+     \* Enable USART2
+
+     \*/
+
+    LL\_USART\_Enable(USART2);
+
+}
+
+
+
+/\* =========================================================
+
+ \* USART2 TRANSMIT
+
+ \* ========================================================= \*/
+
+**void** **usart2\_w**(**char** ch)
+
+{
+
+    /\*
+
+     \* Wait until transmit data register is empty
+
+     \*/
+
+    **while** (!LL\_USART\_IsActiveFlag\_TXE(USART2))
+
+    {
+
+    }
+
+
+
+    /\*
+
+     \* Send character
+
+     \*/
+
+    LL\_USART\_TransmitData8(USART2, ch);
+
+}
+
+
+
+/\* =========================================================
+
+ \* USART2 RECEIVE
+
+ \* ========================================================= \*/
+
+**char** **usart2\_r**(**void**)
+
+{
+
+    /\*
+
+     \* Wait until receive data register contains data
+
+     \*/
+
+    **while** (!LL\_USART\_IsActiveFlag\_RXNE(USART2))
+
+    {
+
+    }
+
+
+
+    /\*
+
+     \* Return received character
+
+     \*/
+
+    **return** LL\_USART\_ReceiveData8(USART2);
+
+}
