@@ -1,10 +1,10 @@
-21:34:38 **** Incremental Build of configuration Debug for project STM32_UART_LL_01 ****
+21:40:05 **** Incremental Build of configuration Debug for project STM32_UART_LL_01 ****
 make -j20 all 
 arm-none-eabi-size  STM32_UART_LL_01.elf 
    text	   data	    bss	    dec	    hex	filename
-   3768	      0	   1568	   5336	   14d8	STM32_UART_LL_01.elf
+   3764	      0	   1568	   5332	   14d4	STM32_UART_LL_01.elf
 Finished building: default.size.stdout
  
 
-21:34:38 Build Finished. 0 errors, 0 warnings. (took 145ms)
+21:40:05 Build Finished. 0 errors, 0 warnings. (took 138ms)
 

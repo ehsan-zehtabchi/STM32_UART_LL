@@ -17,16 +17,16 @@ int main(void)
     {
     	rc = usart2_r();
 
-    	if (rc >= 'A' && rc <= 'Z')
-    	{
-    	    rc = rc | 0x20;
-    	}
-        else if (rc >= 'a' && rc <= 'z')
-        {
-            rc = rc & 0xDF;
-        }
+    if (rc >= 'A' && rc <= 'Z')
+    {
+    rc = rc + ('a' - 'A');
+    }
+    else if (rc >= 'a' && rc <= 'z')
+    {
+    rc = rc - ('a' - 'A');
+    }
 
-    	usart2_w(rc);
+    usart2_w(rc);
     }
 }
 
